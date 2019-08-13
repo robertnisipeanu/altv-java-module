@@ -6,7 +6,7 @@
 #include <altv-cpp-api/events/CMetaDataChangeEvent.h>
 #include <jni.h>
 #include "ScriptVM.h"
-#include "JavaResource_API.h"
+#include "API/JavaResource_API.h"
 
 class JavaResource : public alt::IResource {
 

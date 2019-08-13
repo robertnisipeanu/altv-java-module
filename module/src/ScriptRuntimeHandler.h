@@ -4,7 +4,7 @@
 #include <altv-cpp-api/IScriptRuntime.h>
 #include "ScriptVM.h"
 #include "JavaResource.h"
-#include "ScriptRuntimeHandler_API.h"
+#include "API/ScriptRuntimeHandler_API.h"
 
 class ScriptRuntimeHandler : public alt::IScriptRuntime
 {

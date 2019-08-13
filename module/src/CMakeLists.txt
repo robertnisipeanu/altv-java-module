@@ -36,7 +36,7 @@ set(
     "API/IEntity_API.h"
 )
 
-add_library(${PROJECT_TITLE} ${source_list})
+add_library(${PROJECT_TITLE} SHARED ${source_list})
 
 foreach(source IN LISTS source_list)
     get_filename_component(source_path "${source}" PATH)
@@ -56,9 +56,14 @@ target_compile_features(${PROJECT_TITLE} PRIVATE cxx_std_17)
 target_include_directories(${PROJECT_TITLE} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../thirdparty)
 message (STATUS "Included /thirdparty Directory")
 
-target_include_directories(${PROJECT_TITLE} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../jdk-include)
-target_link_libraries(${PROJECT_TITLE} ${CMAKE_CURRENT_SOURCE_DIR}/../jdk-libs/jawt.lib)
-target_link_libraries(${PROJECT_TITLE} ${CMAKE_CURRENT_SOURCE_DIR}/../jdk-libs/jvm.lib)
+find_package(JNI)
+
+if(JNI_FOUND)
+    target_include_directories(${PROJECT_TITLE} PRIVATE ${JNI_INCLUDE_DIRS})
+    message(STATUS "Included JNI Dirs: ${JNI_INCLUDE_DIRS}")
+    target_link_libraries(${PROJECT_TITLE} ${JNI_LIBRARIES})
+    message(STATUS "Included JNI Libs: ${JNI_LIBRARIES}")
+endif()
 
 add_custom_command(TARGET ${PROJECT_TITLE}
                    POST_BUILD

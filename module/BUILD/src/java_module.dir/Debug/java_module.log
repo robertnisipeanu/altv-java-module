@@ -1,0 +1,47 @@
+﻿  IPlayer_API.cpp
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\deps/alt-math/alt-math.h(3): warning C4005: '_USE_MATH_DEFINES': macro redefinition
+  C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IPlayer_API.cpp: note: see previous definition of '_USE_MATH_DEFINES'
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\deps/alt-math/alt-math.h(297): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\types/MValue.h(165): warning C4244: 'return': conversion from 'T' to 'alt::MValue::Int', possible loss of data
+          with
+          [
+              T=alt::MValue::Double
+          ]
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\types/MValue.h(182): warning C4244: 'return': conversion from 'T' to 'alt::MValue::UInt', possible loss of data
+          with
+          [
+              T=alt::MValue::Double
+          ]
+  IWorldObject_API.cpp
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\deps/alt-math/alt-math.h(3): warning C4005: '_USE_MATH_DEFINES': macro redefinition
+  C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IWorldObject_API.cpp: note: see previous definition of '_USE_MATH_DEFINES'
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\deps/alt-math/alt-math.h(297): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\types/MValue.h(165): warning C4244: 'return': conversion from 'T' to 'alt::MValue::Int', possible loss of data
+          with
+          [
+              T=alt::MValue::Double
+          ]
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\types/MValue.h(182): warning C4244: 'return': conversion from 'T' to 'alt::MValue::UInt', possible loss of data
+          with
+          [
+              T=alt::MValue::Double
+          ]
+  IEntity_API.cpp
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\deps/alt-math/alt-math.h(3): warning C4005: '_USE_MATH_DEFINES': macro redefinition
+  C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IEntity_API.cpp: note: see previous definition of '_USE_MATH_DEFINES'
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\deps/alt-math/alt-math.h(297): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\types/MValue.h(165): warning C4244: 'return': conversion from 'T' to 'alt::MValue::Int', possible loss of data
+          with
+          [
+              T=alt::MValue::Double
+          ]
+c:\users\robert\desktop\cpp module final folder\module\thirdparty\altv-cpp-api\types/MValue.h(182): warning C4244: 'return': conversion from 'T' to 'alt::MValue::UInt', possible loss of data
+          with
+          [
+              T=alt::MValue::Double
+          ]
+  Generating Code...
+  java_module.vcxproj -> C:\Users\Robert\Desktop\cpp module final folder\module\BUILD\src\Debug\java-module.lib
+  Copy .dll file	Copy .pdb file
+          1 file(s) copied.
+          1 file(s) copied.

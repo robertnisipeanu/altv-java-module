@@ -1,0 +1,3 @@
+C:/Users/Robert/Desktop/cpp module final folder/module/BUILD/CMakeFiles/ALL_BUILD.dir
+C:/Users/Robert/Desktop/cpp module final folder/module/BUILD/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Robert/Desktop/cpp module final folder/module/BUILD/src/CMakeFiles/java_module.dir

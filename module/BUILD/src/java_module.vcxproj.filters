@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\Main.cpp" />
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\ScriptRuntimeHandler.cpp" />
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\ScriptVM.cpp" />
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\JavaResource.cpp" />
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IBaseObject_API.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IPlayer_API.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IServer_API.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\JavaResource_API.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\ScriptRuntimeHandler_API.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IWorldObject_API.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IEntity_API.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\Main.h" />
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\ScriptRuntimeHandler.h" />
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\ScriptVM.h" />
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\JavaResource.h" />
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IBaseObject_API.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IPlayer_API.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IServer_API.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\JavaResource_API.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\ScriptRuntimeHandler_API.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IWorldObject_API.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\API\IEntity_API.h">
+      <Filter>API</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Robert\Desktop\cpp module final folder\module\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="API">
+      <UniqueIdentifier>{3BCFFBC5-113F-3C5F-9B97-71F03A5DECBE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

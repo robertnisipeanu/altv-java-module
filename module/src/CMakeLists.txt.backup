@@ -1,0 +1,35 @@
+﻿# CMakeList.txt : CMake project for java_module, include source and define
+# project specific logic here.
+#
+cmake_minimum_required (VERSION 3.8)
+
+set(PROJECT_TITLE java_module)
+
+# Add source to this project's executable.
+add_library (${PROJECT_TITLE} SHARED "Main.cpp" "Main.h" "ScriptRuntimeHandler.cpp" "ScriptRuntimeHandler.h" "ScriptRuntimeHandler_API.cpp" "ScriptRuntimeHandler_API.h" "ScriptVM.cpp" "ScriptVM.h" "JavaResource.cpp" "JavaResource.h" "JavaResource_API.cpp" "JavaResource_API.h" "IServer_API.cpp" "IServer_API.h" "IPlayer_API.cpp" "IPlayer_API.h" "IBaseObject_API.cpp" "IBaseObject_API.h")
+
+# TODO: Add tests and install targets if needed.
+
+target_compile_definitions(${PROJECT_TITLE} PRIVATE ALT_SERVER_API=true)
+target_compile_definitions(${PROJECT_TITLE} PRIVATE _USE_MATH_DEFINES)
+
+set_target_properties(${PROJECT_TITLE} PROPERTIES OUTPUT_NAME "java-module")
+
+target_compile_features(${PROJECT_TITLE} PRIVATE cxx_std_17)
+
+target_include_directories(${PROJECT_TITLE} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../thirdparty)
+message (STATUS "Included /thirdparty Directory")
+
+target_include_directories(${PROJECT_TITLE} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../jdk-include)
+target_link_libraries(${PROJECT_TITLE} ${CMAKE_CURRENT_SOURCE_DIR}/../jdk-libs/jawt.lib)
+target_link_libraries(${PROJECT_TITLE} ${CMAKE_CURRENT_SOURCE_DIR}/../jdk-libs/jvm.lib)
+
+add_custom_command(TARGET ${PROJECT_TITLE}
+                   POST_BUILD
+                   COMMAND copy ARGS "/Y \"$(OutputPath)java-module.dll\" \"$(LocalDebuggerWorkingDirectory)modules\\java-module.dll\""
+                   COMMENT "Copy .dll file")
+
+add_custom_command(TARGET ${PROJECT_TITLE}
+                   POST_BUILD
+                   COMMAND copy ARGS "/Y \"$(OutputPath)java-module.pdb\" \"$(LocalDebuggerWorkingDirectory)modules\\java-module.pdb\""
+                   COMMENT "Copy .pdb file")

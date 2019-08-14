@@ -21,6 +21,8 @@ extern "C" {
 
 	EXPORT void alt_IPlayer_Despawn(uintptr_t playerPointer);
 
+	EXPORT const char* alt_IPlayer_GetName(uintptr_t playerPointer);
+
 	EXPORT uint64_t alt_IPlayer_GetSocialID(uintptr_t playerPointer);
 	EXPORT uint64_t alt_IPlayer_GetHwidHash(uintptr_t playerPointer);
 	EXPORT uint64_t alt_IPlayer_GetHwidExHash(uintptr_t playerPointer);

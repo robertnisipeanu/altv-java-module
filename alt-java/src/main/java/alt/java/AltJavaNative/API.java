@@ -10,6 +10,7 @@ import jnr.ffi.types.u_int32_t;
 import jnr.ffi.types.u_int16_t;
 import jnr.ffi.types.u_int8_t;
 import jnr.ffi.types.int16_t;
+import jnr.ffi.types.u_int64_t;
 
 public class API {
 
@@ -266,6 +267,53 @@ public class API {
         //region IEntity_API.h
         @u_int16_t int alt_IEntity_GetID(Pointer entityPointer);
         @u_int32_t long alt_IEntity_GetModel(Pointer entityPointer);
+        //endregion
+
+        //region IPlayer_API.h
+        boolean alt_IPlayer_IsConnected(Pointer playerPointer);
+        @u_int32_t long alt_IPlayer_GetPing(Pointer playerPointer);
+        @Encoding("UTF-8") String alt_IPlayer_GetIP(Pointer playerPointer);
+        void alt_IPlayer_Despawn(Pointer playerPointer);
+        @Encoding("UTF-8") String alt_IPlayer_GetName(Pointer playerPointer);
+        @u_int64_t long alt_IPlayer_GetSocialID(Pointer playerPointer);
+        @u_int64_t long alt_IPlayer_GetHwidHash(Pointer playerPointer);
+        @u_int64_t long alt_IPlayer_GetHwidExHash(Pointer playerPointer);
+        @Encoding("UTF-8") String alt_IPlayer_GetAuthToken(Pointer playerPointer);
+        @u_int16_t int alt_IPlayer_GetHealth(Pointer playerPointer);
+        void alt_IPlayer_SetHealth(Pointer playerPointer, @u_int16_t int health);
+        @u_int16_t int alt_IPlayer_GetMaxHealth(Pointer playerPointer);
+        void alt_IPlayer_SetMaxHealth(Pointer playerPointer, @u_int16_t int health);
+        void alt_IPlayer_SetDateTime(Pointer playerPointer, int day, int month, int year, int hour, int minute, int second);
+        void alt_IPlayer_SetWeather(Pointer playerPointer, @u_int32_t long weather);
+        void alt_IPlayer_GiveWeapon(Pointer playerPointer, @u_int32_t long weapon, @int32_t int ammo, boolean selectWeapon);
+        void alt_IPlayer_RemoveWeapon(Pointer playerPointer, @u_int32_t long weapon);
+        void alt_IPlayer_RemoveAllWeapons(Pointer playerPointer);
+        void alt_IPlayer_AddWeaponComponent(Pointer playerPointer, @u_int32_t long weapon, @u_int32_t long component);
+        void alt_IPlayer_RemoveWeaponComponent(Pointer playerPointer, @u_int32_t long weapon, @u_int32_t long component);
+        void alt_IPlayer_SetWeaponTintIndex(Pointer playerPointer, @u_int32_t long weapon, @u_int8_t short tintIndex);
+        @u_int8_t short alt_IPlayer_GetCurrentWeaponTintIndex(Pointer playerPointer);
+        @u_int32_t long alt_IPlayer_GetCurrentWeapon(Pointer playerPointer);
+        void alt_IPlayer_SetCurrentWeapon(Pointer playerPointer, @u_int32_t long weapon);
+        boolean alt_IPlayer_IsDead(Pointer playerPointer);
+        boolean alt_IPlayer_IsJumping(Pointer playerPointer);
+        boolean alt_IPlayer_IsInRagdoll(Pointer playerPointer);
+        boolean alt_IPlayer_IsAiming(Pointer playerPointer);
+        boolean alt_IPlayer_IsShooting(Pointer playerPointer);
+        boolean alt_IPlayer_IsReloading(Pointer playerPointer);
+        @u_int16_t int alt_IPlayer_GetArmour(Pointer playerPointer);
+        void alt_IPlayer_SetArmour(Pointer playerPointer, @u_int16_t int armor);
+        @u_int16_t int alt_IPlayer_GetMaxArmour(Pointer playerPointer);
+        void alt_IPlayer_SetMaxArmour(Pointer playerPointer, @u_int16_t int armor);
+        float alt_IPlayer_GetMoveSpeed(Pointer playerPointer);
+        @u_int32_t long alt_IPlayer_GetWeapon(Pointer playerPointer);
+        @u_int16_t int alt_IPlayer_GetAmmo(Pointer playerPointer);
+        boolean alt_IPlayer_IsInVehicle(Pointer playerPointer);
+        Pointer alt_IPlayer_GetVehicle(Pointer playerPointer);
+        @u_int8_t short alt_IPlayer_GetSeat(Pointer playerPointer);
+        Pointer alt_IPlayer_GetEntityAimingAt(Pointer playerPointer);
+        boolean alt_IPlayer_IsFlashlightActive(Pointer playerPointer);
+        void alt_IPlayer_Kick(Pointer playerPointer, @Encoding("UTF-8") String reason);
+        void alt_IPlayer_SetModel(Pointer playerPointer, @u_int32_t long model);
         //endregion
 
     }

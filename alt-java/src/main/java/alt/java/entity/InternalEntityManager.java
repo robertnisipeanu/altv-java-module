@@ -12,9 +12,9 @@ import java.util.HashMap;
 
 public final class InternalEntityManager {
 
-    private static HashMap<AltResource, ArrayList<BaseObject>> entity_baseObjectList = new HashMap<>();
-    private static HashMap<AltResource, ArrayList<Player>> entity_playerList = new HashMap<>();
-    private static HashMap<AltResource, ArrayList<Vehicle>> entity_vehicleList = new HashMap<>();
+    private static HashMap<AltResource, HashMap<Pointer, BaseObject>> entity_baseObjectList = new HashMap<>();
+    private static HashMap<AltResource, HashMap<Pointer, Player>> entity_playerList = new HashMap<>();
+    private static HashMap<AltResource, HashMap<Pointer, Vehicle>> entity_vehicleList = new HashMap<>();
 
     public static void initializeInternalEntityManager(){
         API.libc.alt_JavaResource_OnCreateBaseObject_Callback_Register(CreateBaseObjectCallback);
@@ -40,11 +40,13 @@ public final class InternalEntityManager {
         switch(API.libc.alt_IBaseObject_GetType(baseObjectPointer)){
             case BaseObjectType.Player:
                 baseObject = new Player(baseObjectPointer);
-                entity_playerList.computeIfAbsent(resource, v -> new ArrayList<>()).add(((Player)baseObject));
+                // entity_playerList.computeIfAbsent(resource, v -> new ArrayList<>()).add(((Player)baseObject));
+                entity_playerList.computeIfAbsent(resource, v-> new HashMap<>()).put(baseObjectPointer, ((Player)baseObject));
                 break;
             case BaseObjectType.Vehicle:
                 baseObject = new Vehicle(baseObjectPointer);
-                entity_vehicleList.computeIfAbsent(resource, v -> new ArrayList<>()).add(((Vehicle)baseObject));
+                // entity_vehicleList.computeIfAbsent(resource, v -> new ArrayList<>()).add(((Vehicle)baseObject));
+                entity_vehicleList.computeIfAbsent(resource, v -> new HashMap<>()).put(baseObjectPointer, ((Vehicle)baseObject));
                 break;
             case BaseObjectType.Blip:
                 baseObject = new Blip(baseObjectPointer);
@@ -59,7 +61,8 @@ public final class InternalEntityManager {
                 baseObject = new BaseObject(baseObjectPointer);
                 break;
         }
-        entity_baseObjectList.computeIfAbsent(resource, v->new ArrayList<>()).add(baseObject);
+        // entity_baseObjectList.computeIfAbsent(resource, v->new ArrayList<>()).add(baseObject);
+        entity_baseObjectList.computeIfAbsent(resource, v -> new HashMap<>()).put(baseObjectPointer, baseObject);
     }
 
     private static void OnRemoveBaseObject(Pointer resourcePointer, Pointer baseObjectPointer){

@@ -20,6 +20,11 @@ void alt_IPlayer_Despawn(uintptr_t playerPointer) {
 	player->Despawn();
 }
 
+const char* alt_IPlayer_GetName(uintptr_t playerPointer) {
+	auto* player = reinterpret_cast<alt::IPlayer*>(playerPointer);
+	return player->GetName().CStr();
+}
+
 uint64_t alt_IPlayer_GetSocialID(uintptr_t playerPointer) {
 	auto* player = reinterpret_cast<alt::IPlayer*>(playerPointer);
 	return player->GetSocialID();

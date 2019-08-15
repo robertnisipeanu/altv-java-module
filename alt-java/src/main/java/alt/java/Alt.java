@@ -130,7 +130,7 @@ public final class Alt {
     }
 
     public static ArrayList<Entity> getEntities(){
-        throw new NotImplementedException("TODO");
+        return InternalEntityManager.getEntitiesForResource(AltNative.getResourceFromCallerClass(StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass()));
     }
     public static ArrayList<Player> getPlayers(){
         AltResource resource = AltNative.getResourceFromCallerClass(StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass());

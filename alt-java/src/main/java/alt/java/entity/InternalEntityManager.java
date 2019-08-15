@@ -15,6 +15,8 @@ public final class InternalEntityManager {
     private static HashMap<AltResource, HashMap<Pointer, BaseObject>> entity_baseObjectList = new HashMap<>();
     private static HashMap<AltResource, HashMap<Pointer, Player>> entity_playerList = new HashMap<>();
     private static HashMap<AltResource, HashMap<Pointer, Vehicle>> entity_vehicleList = new HashMap<>();
+    private static HashMap<AltResource, HashMap<Pointer, Entity>> entity_entityList = new HashMap<>();
+    /* TODO: Implement Entity type on object creation/deletion */
 
     public static void initializeInternalEntityManager(){
         API.libc.alt_JavaResource_OnCreateBaseObject_Callback_Register(CreateBaseObjectCallback);
@@ -33,12 +35,20 @@ public final class InternalEntityManager {
         return entity_baseObjectList.get(resource).get(baseObjectPointer);
     }
 
+    public static Entity getEntityFromPointerForResource(AltResource resource, Pointer entityPointer){
+        return entity_entityList.get(resource).get(entityPointer);
+    }
+
     public static ArrayList<Player> getPlayersForResource(AltResource resource){
         return new ArrayList<>(entity_playerList.get(resource).values());
     }
 
     public static ArrayList<Vehicle> getVehiclesForResource(AltResource resource){
         return new ArrayList<>(entity_vehicleList.get(resource).values());
+    }
+
+    public static ArrayList<Entity> getEntitiesForResource(AltResource resource){
+        return new ArrayList<>(entity_entityList.get(resource).values());
     }
 
     private static API.alt_JavaResource_OnCreateBaseObject_Callback CreateBaseObjectCallback = InternalEntityManager::OnCreateBaseObject;
@@ -52,11 +62,13 @@ public final class InternalEntityManager {
                 baseObject = new Player(baseObjectPointer);
                 // entity_playerList.computeIfAbsent(resource, v -> new ArrayList<>()).add(((Player)baseObject));
                 entity_playerList.computeIfAbsent(resource, v-> new HashMap<>()).put(baseObjectPointer, ((Player)baseObject));
+                entity_entityList.computeIfAbsent(resource, v-> new HashMap<>()).put(baseObjectPointer, ((Entity)baseObject));
                 break;
             case BaseObjectType.Vehicle:
                 baseObject = new Vehicle(baseObjectPointer);
                 // entity_vehicleList.computeIfAbsent(resource, v -> new ArrayList<>()).add(((Vehicle)baseObject));
                 entity_vehicleList.computeIfAbsent(resource, v -> new HashMap<>()).put(baseObjectPointer, ((Vehicle)baseObject));
+                entity_entityList.computeIfAbsent(resource, v-> new HashMap<>()).put(baseObjectPointer, ((Entity)baseObject));
                 break;
             case BaseObjectType.Blip:
                 baseObject = new Blip(baseObjectPointer);
@@ -80,9 +92,11 @@ public final class InternalEntityManager {
         switch(API.libc.alt_IBaseObject_GetType(baseObjectPointer)){
             case BaseObjectType.Player:
                 entity_playerList.computeIfAbsent(resource, v -> new HashMap<>()).remove(baseObjectPointer);
+                entity_entityList.computeIfAbsent(resource, v -> new HashMap<>()).remove(baseObjectPointer);
                 break;
             case BaseObjectType.Vehicle:
                 entity_vehicleList.computeIfAbsent(resource, v -> new HashMap<>()).remove(baseObjectPointer);
+                entity_entityList.computeIfAbsent(resource, v -> new HashMap<>()).remove(baseObjectPointer);
                 break;
             default:
                 break;

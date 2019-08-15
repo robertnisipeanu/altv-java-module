@@ -21,14 +21,24 @@ public final class InternalEntityManager {
         API.libc.alt_JavaResource_OnRemoveBaseObject_Callback_Register(RemoveBaseObjectCallback);
     }
 
+    public static Player getPlayerFromPointerForResource(AltResource resource, Pointer playerPointer){
+        return entity_playerList.get(resource).get(playerPointer); // Gonna throw a NullPointerException if key doesn't exists, but if this method is called then the key should exist
+    }
+
+    public static Vehicle getVehicleFromPointerForResource(AltResource resource, Pointer vehiclePointer){
+        return entity_vehicleList.get(resource).get(vehiclePointer);
+    }
+
+    public static BaseObject getBaseObjectFromPointerForResource(AltResource resource, Pointer baseObjectPointer){
+        return entity_baseObjectList.get(resource).get(baseObjectPointer);
+    }
+
     public static ArrayList<Player> getPlayersForResource(AltResource resource){
-        throw new NotImplementedException("TODO");
-        //return entity_playerList.get(resource);
+        return new ArrayList<>(entity_playerList.get(resource).values());
     }
 
     public static ArrayList<Vehicle> getVehiclesForResource(AltResource resource){
-        throw new NotImplementedException("TODO");
-        //return entity_vehicleList.get(resource);
+        return new ArrayList<>(entity_vehicleList.get(resource).values());
     }
 
     private static API.alt_JavaResource_OnCreateBaseObject_Callback CreateBaseObjectCallback = InternalEntityManager::OnCreateBaseObject;
@@ -66,11 +76,19 @@ public final class InternalEntityManager {
     }
 
     private static void OnRemoveBaseObject(Pointer resourcePointer, Pointer baseObjectPointer){
-        
-    }
+        AltResource resource = ResourceManager.getResource(resourcePointer);
+        switch(API.libc.alt_IBaseObject_GetType(baseObjectPointer)){
+            case BaseObjectType.Player:
+                entity_playerList.computeIfAbsent(resource, v -> new HashMap<>()).remove(baseObjectPointer);
+                break;
+            case BaseObjectType.Vehicle:
+                entity_vehicleList.computeIfAbsent(resource, v -> new HashMap<>()).remove(baseObjectPointer);
+                break;
+            default:
+                break;
+        }
 
-    /*
-    TODO: Add entities on base object creation
-     */
+        entity_baseObjectList.computeIfAbsent(resource, v -> new HashMap<>()).remove(baseObjectPointer);
+    }
 
 }

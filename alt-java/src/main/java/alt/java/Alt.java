@@ -51,8 +51,8 @@ public final class Alt {
         if(callerLoader instanceof ResourceClassLoader){
             API.libc.alt_IServer_LogInfo(API.serverPointer, "Called from resource: "+((ResourceClassLoader)callerLoader).resource.getResourcePointer().address());
         }*/
-        AltResource testing = AltNative.getResourceFromCallerClass(StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass());
-        API.libc.alt_IServer_LogInfo(API.serverPointer, "Called from resource: " + (testing != null ? "yes" : "no"));
+        /*AltResource testing = AltNative.getResourceFromCallerClass(StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass());
+        API.libc.alt_IServer_LogInfo(API.serverPointer, "Called from resource: " + (testing != null ? "yes" : "no"));*/
         API.libc.alt_IServer_LogInfo(API.serverPointer, message);
     }
     public static void logDebug(String message){

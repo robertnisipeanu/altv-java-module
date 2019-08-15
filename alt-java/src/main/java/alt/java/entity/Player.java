@@ -1,6 +1,8 @@
 package alt.java.entity;
 
 import alt.java.AltJavaNative.API;
+import alt.java.AltJavaNative.AltNative;
+import alt.java.resource.AltResource;
 import alt.java.util.Position;
 import alt.java.util.Rotation;
 import jnr.ffi.Pointer;
@@ -162,14 +164,16 @@ public class Player extends Entity {
         return API.libc.alt_IPlayer_IsInVehicle(baseObjectPointer);
     }
     public Vehicle getVehicle(){
-        throw new NotImplementedException("TODO");
+        AltResource callerResource = AltNative.getResourceFromCallerClass(StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass());
+        return InternalEntityManager.getVehicleFromPointerForResource(callerResource, baseObjectPointer);
     }
     public short getSeat(){
         return API.libc.alt_IPlayer_GetSeat(baseObjectPointer);
     }
 
     public Entity getEntityAimingAt(){
-        throw new NotImplementedException("TODO");
+        AltResource callerResource = AltNative.getResourceFromCallerClass(StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass());
+        return ((Entity) InternalEntityManager.getBaseObjectFromPointerForResource(callerResource, baseObjectPointer));
     }
     public Position getEntityAimOffset(){
         throw new NotImplementedException("TODO");

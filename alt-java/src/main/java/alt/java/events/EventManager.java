@@ -6,6 +6,7 @@ import alt.java.resource.AltResource;
 import alt.java.resource.ResourceManager;
 import jnr.ffi.Pointer;
 import org.apache.commons.lang3.NotImplementedException;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -90,7 +91,7 @@ public class EventManager {
                 try{
                     method.invoke(eventListener, eventObject);
                 } catch (IllegalAccessException | InvocationTargetException e) {
-                    Alt.logError("There has been an error while processing events: "+e.toString());
+                    Alt.logError("There has been an error while processing events: "+ ExceptionUtils.getStackTrace(e));
                 }
             }
         }
@@ -98,8 +99,6 @@ public class EventManager {
 
     //region Event callbacks
     private static boolean On_PlayerConnectEvent(Pointer resourcePointer, Pointer eventPointer){
-        Alt.logInfo("Player connect event");
-        Alt.logInfo("IPlayer object address: "+API.libc.alt_JavaResource_PlayerConnectEvent_GetTarget(eventPointer).address());
         fireEvent(resourcePointer, new PlayerConnectEvent(eventPointer));
 
         return true;

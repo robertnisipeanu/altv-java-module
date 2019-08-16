@@ -6,11 +6,10 @@ bool JavaResource::OnEvent(const alt::CEvent* ev)
 	switch (ev->GetType())
 	{
 	case alt::CEvent::Type::PLAYER_CONNECT:
-		this->server->LogInfo("Player cn event");
 		if (JavaResource_PlayerConnectEvent_Callback)
 			result = JavaResource_PlayerConnectEvent_Callback(reinterpret_cast<uintptr_t>(this), reinterpret_cast<uintptr_t>(ev));
-		else
-			this->server->LogInfo("Callback is null");
+		((alt::CPlayerConnectEvent*) ev)->GetTarget()->Spawn(alt::Position(100, 100, 80), 100);
+		((alt::CPlayerConnectEvent*) ev)->GetTarget()->SetHealth(((alt::CPlayerConnectEvent*) ev)->GetTarget()->GetMaxHealth());
 		break;
 	case alt::CEvent::Type::PLAYER_DISCONNECT:
 		if (JavaResource_PlayerDisconnectEvent_Callback)
@@ -111,15 +110,11 @@ bool JavaResource::Stop()
 
 void JavaResource::OnCreateBaseObject(alt::IBaseObject* object)
 {
-	this->server->LogInfo("OnCreateBaseObject");
-	//this->server->LogInfo("BaseObject created, object address: "+reinterpret_cast<uintptr_t>(object));
 	if (JavaResource_CreateBaseObject_Callback) JavaResource_CreateBaseObject_Callback(reinterpret_cast<uintptr_t>(this), reinterpret_cast<uintptr_t>(object));
 }
 
 void JavaResource::OnRemoveBaseObject(alt::IBaseObject* object)
 {
-	//uintptr_t pointer = reinterpret_cast<uintptr_t>(object);
-	this->server->LogInfo("OnRemoveBaseObject");
 	if (JavaResource_RemoveBaseObject_Callback) JavaResource_RemoveBaseObject_Callback(reinterpret_cast<uintptr_t>(this), reinterpret_cast<uintptr_t>(object));
 }
 

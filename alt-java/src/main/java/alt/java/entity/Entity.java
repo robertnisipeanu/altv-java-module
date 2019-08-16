@@ -1,5 +1,6 @@
 package alt.java.entity;
 
+import alt.java.AltJavaNative.API;
 import alt.java.util.Rotation;
 import jnr.ffi.Pointer;
 import org.apache.commons.lang3.NotImplementedException;
@@ -10,12 +11,12 @@ public class Entity extends WorldObject {
         super(objectPointer);
     }
 
-    public int getId(){
-        throw new NotImplementedException("TODO");
+    public int getID(){
+        return API.libc.alt_IEntity_GetID(baseObjectPointer);
     }
 
     public long getModel(){
-        throw new NotImplementedException("TODO");
+        return API.libc.alt_IEntity_GetModel(baseObjectPointer);
     }
 
     public Rotation getRotation(){

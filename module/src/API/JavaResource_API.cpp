@@ -174,7 +174,7 @@ const char* alt_JavaResource_PlayerConnectEvent_GetReason(uintptr_t eventPointer
 uintptr_t alt_JavaResource_PlayerConnectEvent_GetTarget(uintptr_t eventPointer)
 {
 	auto* event = reinterpret_cast<alt::CPlayerConnectEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 	#pragma endregion
 
@@ -186,7 +186,7 @@ const char* alt_JavaResource_PlayerDisconnectEvent_GetReason(uintptr_t eventPoin
 }
 uintptr_t alt_JavaResource_PlayerDisconnectEvent_GetTarget(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerDisconnectEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 	#pragma endregion
 
@@ -204,7 +204,7 @@ const char* alt_JavaResource_ClientScriptEvent_GetName(uintptr_t eventPointer) {
 }
 uintptr_t alt_JavaResource_ClientScriptEvent_GetTarget(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CClientScriptEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 	#pragma endregion
 
@@ -217,12 +217,12 @@ uintptr_t alt_JavaResource_ClientScriptEvent_GetTarget(uintptr_t eventPointer) {
 	#pragma region PlayerDamageEvent
 uintptr_t alt_JavaResource_PlayerDamageEvent_GetTarget(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerDamageEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 
 uintptr_t alt_JavaResource_PlayerDamageEvent_GetAttacker(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerDamageEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetAttacker());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetAttacker());
 }
 
 uint16_t alt_JavaResource_PlayerDamageEvent_GetDamage(uintptr_t eventPointer) {
@@ -239,12 +239,12 @@ uint32_t alt_JavaResource_PlayerDamageEvent_GetWeapon(uintptr_t eventPointer) {
 	#pragma region PlayerDeathEvent
 uintptr_t alt_JavaResource_PlayerDeathEvent_GetTarget(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerDeathEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 
 uintptr_t alt_JavaResource_PlayerDeathEvent_GetKiller(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerDeathEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetKiller());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetKiller());
 }
 
 uint32_t alt_JavaResource_PlayerDeathEvent_GetWeapon(uintptr_t eventPointer) {
@@ -256,12 +256,12 @@ uint32_t alt_JavaResource_PlayerDeathEvent_GetWeapon(uintptr_t eventPointer) {
 	#pragma region CheckpointEvent
 uintptr_t alt_JavaResource_CheckpointEvent_GetTarget(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CCheckpointEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 
 uintptr_t alt_JavaResource_CheckpointEvent_GetEntity(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CCheckpointEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetEntity());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetEntity());
 }
 
 bool alt_JavaResource_CheckpointEvent_GetState(uintptr_t eventPointer) {
@@ -273,12 +273,12 @@ bool alt_JavaResource_CheckpointEvent_GetState(uintptr_t eventPointer) {
 	#pragma region ColshapeEvent
 uintptr_t alt_JavaResource_ColshapeEvent_GetTarget(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CColShapeEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 
 uintptr_t alt_JavaResource_ColshapeEvent_GetEntity(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CColShapeEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetEntity());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetEntity());
 }
 
 bool alt_JavaResource_ColshapeEvent_GetState(uintptr_t eventPointer) {
@@ -290,12 +290,12 @@ bool alt_JavaResource_ColshapeEvent_GetState(uintptr_t eventPointer) {
 	#pragma region PlayerEnterVehicleEvent
 uintptr_t alt_JavaResource_PlayerEnterVehicleEvent_GetTarget(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerEnterVehicleEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 
 uintptr_t alt_JavaResource_PlayerEnterVehicleEvent_GetPlayer(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerEnterVehicleEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetPlayer());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetPlayer());
 }
 
 uint8_t alt_JavaResource_PlayerEnterVehicleEvent_GetSeat(uintptr_t eventPointer) {
@@ -307,12 +307,12 @@ uint8_t alt_JavaResource_PlayerEnterVehicleEvent_GetSeat(uintptr_t eventPointer)
 	#pragma region PlayerLeaveVehicleEvent
 uintptr_t alt_JavaResource_PlayerLeaveVehicleEvent_GetTarget(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerLeaveVehicleEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 
 uintptr_t alt_JavaResource_PlayerLeaveVehicleEvent_GetPlayer(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerLeaveVehicleEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetPlayer());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetPlayer());
 }
 
 uint8_t alt_JavaResource_PlayerLeaveVehicleEvent_GetSeat(uintptr_t eventPointer) {
@@ -324,12 +324,12 @@ uint8_t alt_JavaResource_PlayerLeaveVehicleEvent_GetSeat(uintptr_t eventPointer)
 	#pragma region PlayerChangeVehicleSeatEvent
 uintptr_t alt_JavaResource_PlayerChangeVehicleSeatEvent_GetTarget(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerChangeVehicleSeatEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetTarget());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetTarget());
 }
 
 uintptr_t alt_JavaResource_PlayerChangeVehicleSeatEvent_GetPlayer(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CPlayerChangeVehicleSeatEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetPlayer());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetPlayer());
 }
 
 uint8_t alt_JavaResource_PlayerChangeVehicleSeatEvent_GetOldSeat(uintptr_t eventPointer) {
@@ -346,7 +346,7 @@ uint8_t alt_JavaResource_PlayerChangeVehicleSeatEvent_GetNewSeat(uintptr_t event
 	#pragma region RemoveEntityEvent
 uintptr_t alt_JavaResource_RemoveEntityEvent_GetEntity(uintptr_t eventPointer) {
 	auto* event = reinterpret_cast<alt::CRemoveEntityEvent*>(eventPointer);
-	return reinterpret_cast<uintptr_t>(event->GetEntity());
+	return reinterpret_cast<uintptr_t>((alt::IBaseObject*)event->GetEntity());
 }
 	#pragma endregion
 

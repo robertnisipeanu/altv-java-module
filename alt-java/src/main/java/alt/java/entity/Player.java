@@ -173,7 +173,7 @@ public class Player extends Entity {
 
     public Entity getEntityAimingAt(){
         AltResource callerResource = AltNative.getResourceFromCallerClass(StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass());
-        return ((Entity) InternalEntityManager.getBaseObjectFromPointerForResource(callerResource, baseObjectPointer));
+        return InternalEntityManager.getEntityFromPointerForResource(callerResource, baseObjectPointer);
     }
     public Position getEntityAimOffset(){
         throw new NotImplementedException("TODO");

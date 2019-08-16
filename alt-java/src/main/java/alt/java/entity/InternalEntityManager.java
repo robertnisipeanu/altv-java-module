@@ -12,6 +12,7 @@ import java.util.HashMap;
 
 public final class InternalEntityManager {
 
+    // All pointers from the following lists will point to IBaseObject and not the custom object (IPlayer,...), so we'll need to use dynamic_cast on C++
     private static HashMap<AltResource, HashMap<Pointer, BaseObject>> entity_baseObjectList = new HashMap<>();
     private static HashMap<AltResource, HashMap<Pointer, Player>> entity_playerList = new HashMap<>();
     private static HashMap<AltResource, HashMap<Pointer, Vehicle>> entity_vehicleList = new HashMap<>();

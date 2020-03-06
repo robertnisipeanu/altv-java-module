@@ -1,8 +1,9 @@
 # altv-java-module
 Java module for alt:V
 
+# This project is abandoned, feel free to fork it and continue it under your name if you want to. However, keep in mind there are better alternatives with more performance and features (like the .NET Core module, which you can take advantage of all the work Microsoft put into .NET Core itself in the last years).
 
-# This is not a finished product, however I'll not be able to work on it for some time.
+# This is not a finished product
 
 # Info
 
